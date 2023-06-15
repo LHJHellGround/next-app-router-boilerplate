@@ -134,7 +134,6 @@ qualcosa-web                     //
 │  │  └─ page.tsx                // 루트 페이지 파일
 │  ├─ favicon.ico                // 파비콘
 │  └─ globals.css                // 전역 css 파일
-├─ commit-msg                    // (삭제예정) git commit 규칙 설정 파일
 ├─ components                    // 컴포넌트 관리 폴더
 │  ├─ common                     // 공통 컴포넌트 폴더
 │  │  └─ locale-switcher.tsx     // i18n 다국어 변경 컴포넌트 파일
@@ -145,6 +144,8 @@ qualcosa-web                     //
 │     ├─ en.json                 // en(영어) 다국어 텍스트 샘플 파일
 │     ├─ get-dictionary.ts       // i18n 관련 다국어 활용 파일
 │     └─ nl.json                 // nl(네덜란드) 다국어 텍스트 샘플 파일
+├─ hooks                         // hooks 관리 폴더
+│  └─ prepare-commit-msg         // git commit 규칙 설정 파일
 ├─ i18n-config.ts                // i18n 설정파일
 ├─ lib                           // 기능 관리 폴더
 │  ├─ api                        // api 관련 폴더
