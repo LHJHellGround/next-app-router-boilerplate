@@ -1,0 +1,28 @@
+#!/bin/bash
+
+message_file="$1" 
+message=$(cat "$message_file")
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+ticket_pattern='FRONTEND-[0-9]+'
+
+COMMITFORMAT="(feat|fix|update|dev|doc)"
+default_pattern="^($COMMITFORMAT: )" 
+
+
+if [[ ! $message =~ $default_pattern ]]; then 
+  echo -e '🚨 Git 컨벤션을 준수해주세요! 👮 (feat|fix|update|dev|doc): '
+  echo ''
+  osascript -e 'display notification "🚨 Git 컨벤션을 준수해주세요! 👮" with title "컨벤션 경고"'
+  exit 1
+fi
+
+if [[ ! $message =~ \[$ticket_pattern\]$ ]]; then
+  if [[ $current_branch =~ $ticket_pattern ]]; then
+    target_ticket="[${BASH_REMATCH[0]}]" 
+  fi
+fi
+
+echo "$message $target_ticket" >$message_file
+
+exit 0
