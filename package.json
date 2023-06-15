@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "commit-config": "cp prepare-commit-msg ./.git/hooks && chmod 755 ./.git/hooks/prepare-commit-msg",
+    "use-hooks": "git config core.hooksPath hooks",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
